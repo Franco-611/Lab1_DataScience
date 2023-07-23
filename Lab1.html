@@ -1,0 +1,1375 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.2.335">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>lab1</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1.6em;
+  vertical-align: middle;
+}
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { color: #008000; } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { color: #008000; font-weight: bold; } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+<script src="Lab1_files/libs/clipboard/clipboard.min.js"></script>
+<script src="Lab1_files/libs/quarto-html/quarto.js"></script>
+<script src="Lab1_files/libs/quarto-html/popper.min.js"></script>
+<script src="Lab1_files/libs/quarto-html/tippy.umd.min.js"></script>
+<script src="Lab1_files/libs/quarto-html/anchor.min.js"></script>
+<link href="Lab1_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="Lab1_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="Lab1_files/libs/bootstrap/bootstrap.min.js"></script>
+<link href="Lab1_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="Lab1_files/libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+
+
+</head>
+
+<body class="fullcontent">
+
+<div id="quarto-content" class="page-columns page-rows-contents page-layout-article">
+
+<main class="content" id="quarto-document-content">
+
+
+
+<section id="laboratorio-1" class="level1">
+<h1>Laboratorio 1</h1>
+<p>Integrantes del analisis:</p>
+<ul>
+<li><p>Manuel Archila 161250</p></li>
+<li><p>Diego Franco 20240</p></li>
+</ul>
+<div class="cell" data-execution_count="63">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> imblearn.over_sampling <span class="im">import</span> SMOTE</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> factor_analyzer <span class="im">import</span> FactorAnalyzer</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> factor_analyzer <span class="im">import</span> FactorAnalyzer</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> factor_analyzer.factor_analyzer <span class="im">import</span> calculate_kmo</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> factor_analyzer.factor_analyzer <span class="im">import</span> calculate_bartlett_sphericity</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="varibles" class="level1">
+<h1>Varibles</h1>
+<ul>
+<li>Age: Edad de la paciente</li>
+<li>Number.of.sexual.partners: Cantidad de parejas sexuales que ha tenido la paciente desde que inició su vida sexual</li>
+<li>First.sexual.intercourse: Edad a la que tuvo el primer encuentro sexual.</li>
+<li>Num.of.pregnancies: Cantidad de embarazos</li>
+<li>Smokes: Si fuma o no</li>
+<li>Smokes.years: Años que lleva fumando</li>
+<li>Smokes.packs.per.year: Cajetillas de cigarrillos por año que fuma la paciente</li>
+<li>Hormonal.Contraceptives: Si usa anticonceptivos hormonales o no</li>
+<li>Hormonal.Contraceptives.years: Años que lleva usando anticonceptivos hormonales</li>
+<li>IUD: Si tiene colocado algún dispositivo intrauterino (DIU)</li>
+<li>IUD.years: Años que lleva usando un DIU</li>
+<li>STDs: Si ha tiene enfermedades de transmisión sexual (ETS)</li>
+<li>STDs.number: Cuantas ETS ha tenido</li>
+<li>STDs.condylomatosis: si ha tenido condilomatosis</li>
+<li>STDs.cervical.condylomatosis: si ha tenido condilomatosis cervical</li>
+<li>STDs.vaginal.condylomatosis: Si ha tenido condilomatosis vaginal</li>
+<li>STDs.vulvo.perineal.condylomatosis: Si ha tenido condilomatosis vulvo perineal</li>
+<li>STDs.syphilis: Si ha tenido Sífilis</li>
+<li>STDs.pelvic.inflammatory.disease: Si ha tenido inflamaciones pélvicas</li>
+<li>STDs.genital.herpes: si ha tenido herpes genital</li>
+<li>STDs.molluscum.contagiosum: Si ha tenido molusco contagioso</li>
+<li>STDs.AIDS: Si tiene SIDA</li>
+<li>STDs.HIV: Si tiene VIH</li>
+<li>STDs.Hepatitis.B: si ha tenido o tiene hepatitis B</li>
+<li>STDs.HPV: Si ha tenido o tiene Virus del Papiloma Humano (VPH)</li>
+<li>STDs.Number.of.diagnosis: Cantidad de diagnósticos de ETS</li>
+<li>STDs.Time.since.first.diagnosis: Tiempo desde el primer diagnóstico</li>
+<li>STDs.Time.since.last.diagnosis: Tiempo desde el último diagnóstico</li>
+<li>Dx.Cancer: Si tiene diagnóstico de cáncer o no</li>
+<li>Dx.CIN: Si tiene diagnóstico de NIC (Neoplasia Intraepitelial Cervical)</li>
+<li>Dx.HPV: Si tiene diagnóstico de Virus del Papiloma Humano</li>
+<li>Dx: Si tiene diagnóstico</li>
+<li>Hinselmann: Si hicieron Colposcopía</li>
+<li>Schiller: Si hicieron la prueba de Schiller</li>
+<li>Citology: Si hicieron citología o no.</li>
+<li>Biopsy: Si hicieron Biopsia o no</li>
+</ul>
+</section>
+<section id="descripcion-y-tipo-de-las-varibales" class="level1">
+<h1>Descripcion y tipo de las varibales</h1>
+<ul>
+<li>Age: Cuantitativa continua (edad en años).</li>
+<li>Number.of.sexual.partners: Cuantitativa discreta (cantidad de parejas sexuales).</li>
+<li>First.sexual.intercourse: Cuantitativa discreta (edad al primer encuentro sexual).</li>
+<li>Num.of.pregnancies: Cuantitativa discreta (cantidad de embarazos).</li>
+<li>Smokes: Cualitativa o categórica nominal (sí o no, si fuma o no).</li>
+<li>Smokes.years: Cuantitativa continua (años que lleva fumando).</li>
+<li>Smokes.packs.per.year: Cuantitativa discreta (cantidad de cajetillas de cigarrillos por año).</li>
+<li>Hormonal.Contraceptives: Cualitativa o categórica nominal (sí o no, si usa anticonceptivos hormonales o no).</li>
+<li>Hormonal.Contraceptives.years: Cuantitativa continua (años que lleva usando anticonceptivos hormonales).</li>
+<li>IUD: Cualitativa o categórica nominal (sí o no, si tiene un DIU colocado).</li>
+<li>IUD.years: Cuantitativa continua (años que lleva usando un DIU).</li>
+<li>STDs: Cualitativa o categórica nominal (sí o no, si tiene enfermedades de transmisión sexual).</li>
+<li>STDs.number: Cuantitativa discreta (cantidad de ETS que ha tenido).</li>
+<li>STDs.condylomatosis: Cualitativa o categórica nominal (sí o no, si ha tenido condilomatosis).</li>
+<li>STDs.cervical.condylomatosis: Cualitativa o categórica nominal (sí o no, si ha tenido condilomatosis cervical).</li>
+<li>STDs.vaginal.condylomatosis: Cualitativa o categórica nominal (sí o no, si ha tenido condilomatosis vaginal).</li>
+<li>STDs.vulvo.perineal.condylomatosis: Cualitativa o categórica nominal (sí o no, si ha tenido condilomatosis vulvo perineal).</li>
+<li>STDs.syphilis: Cualitativa o categórica nominal (sí o no, si ha tenido sífilis).</li>
+<li>STDs.pelvic.inflammatory.disease: Cualitativa o categórica nominal (sí o no, si ha tenido inflamaciones pélvicas).</li>
+<li>STDs.genital.herpes: Cualitativa o categórica nominal (sí o no, si ha tenido herpes genital).</li>
+<li>STDs.molluscum.contagiosum: Cualitativa o categórica nominal (sí o no, si ha tenido molusco contagioso).</li>
+<li>STDs.AIDS: Cualitativa o categórica nominal (sí o no, si tiene SIDA).</li>
+<li>STDs.HIV: Cualitativa o categórica nominal (sí o no, si tiene VIH).</li>
+<li>STDs.Hepatitis.B: Cualitativa o categórica nominal (sí o no, si ha tenido o tiene hepatitis B).</li>
+<li>STDs.HPV: Cualitativa o categórica nominal (sí o no, si ha tenido o tiene Virus del Papiloma Humano).</li>
+<li>STDs.Number.of.diagnosis: Cuantitativa discreta (cantidad de diagnósticos de ETS).</li>
+<li>STDs.Time.since.first.diagnosis: Cuantitativa continua (tiempo desde el primer diagnóstico de ETS).</li>
+<li>STDs.Time.since.last.diagnosis: Cuantitativa continua (tiempo desde el último diagnóstico de ETS).</li>
+<li>Dx.Cancer: Cualitativa o categórica nominal (sí o no, si tiene diagnóstico de cáncer).</li>
+<li>Dx.CIN: Cualitativa o categórica nominal (sí o no, si tiene diagnóstico de NIC - Neoplasia Intraepitelial Cervical).</li>
+<li>Dx.HPV: Cualitativa o categórica nominal (sí o no, si tiene diagnóstico de Virus del Papiloma Humano).</li>
+<li>Dx: Cualitativa o categórica nominal (sí o no, si tiene algún diagnóstico en general).</li>
+<li>Hinselmann: Cualitativa o categórica nominal (sí o no, si se realizó Colposcopía).</li>
+<li>Schiller: Cualitativa o categórica nominal (sí o no, si se realizó la prueba de Schiller).</li>
+<li>Citology: Cualitativa o categórica nominal (sí o no, si se realizó citología).</li>
+<li>Biopsy: Cualitativa o categórica nominal (sí o no, si se realizó biopsia).</li>
+</ul>
+<div class="cell" data-execution_count="64">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>df <span class="op">=</span> pd.read_csv(<span class="st">"./risk_factors_cervical_cancer.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Número de filas y columnas:"</span>, df.shape)</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Primeras filas del conjunto de datos:"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.describe())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Número de filas y columnas: (858, 36)
+Primeras filas del conjunto de datos:
+              Age  STDs: Number of diagnosis   Dx:Cancer      Dx:CIN  \
+count  858.000000                 858.000000  858.000000  858.000000   
+mean    26.820513                   0.087413    0.020979    0.010490   
+std      8.497948                   0.302545    0.143398    0.101939   
+min     13.000000                   0.000000    0.000000    0.000000   
+25%     20.000000                   0.000000    0.000000    0.000000   
+50%     25.000000                   0.000000    0.000000    0.000000   
+75%     32.000000                   0.000000    0.000000    0.000000   
+max     84.000000                   3.000000    1.000000    1.000000   
+
+           Dx:HPV          Dx  Hinselmann    Schiller    Citology      Biopsy  
+count  858.000000  858.000000  858.000000  858.000000  858.000000  858.000000  
+mean     0.020979    0.027972    0.040793    0.086247    0.051282    0.064103  
+std      0.143398    0.164989    0.197925    0.280892    0.220701    0.245078  
+min      0.000000    0.000000    0.000000    0.000000    0.000000    0.000000  
+25%      0.000000    0.000000    0.000000    0.000000    0.000000    0.000000  
+50%      0.000000    0.000000    0.000000    0.000000    0.000000    0.000000  
+75%      0.000000    0.000000    0.000000    0.000000    0.000000    0.000000  
+max      1.000000    1.000000    1.000000    1.000000    1.000000    1.000000  </code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="65">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">'</span><span class="ch">\n</span><span class="st"> Información del data set'</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.info())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Información del data set
+&lt;class 'pandas.core.frame.DataFrame'&gt;
+RangeIndex: 858 entries, 0 to 857
+Data columns (total 36 columns):
+ #   Column                              Non-Null Count  Dtype 
+---  ------                              --------------  ----- 
+ 0   Age                                 858 non-null    int64 
+ 1   Number of sexual partners           858 non-null    object
+ 2   First sexual intercourse            858 non-null    object
+ 3   Num of pregnancies                  858 non-null    object
+ 4   Smokes                              858 non-null    object
+ 5   Smokes (years)                      858 non-null    object
+ 6   Smokes (packs/year)                 858 non-null    object
+ 7   Hormonal Contraceptives             858 non-null    object
+ 8   Hormonal Contraceptives (years)     858 non-null    object
+ 9   IUD                                 858 non-null    object
+ 10  IUD (years)                         858 non-null    object
+ 11  STDs                                858 non-null    object
+ 12  STDs (number)                       858 non-null    object
+ 13  STDs:condylomatosis                 858 non-null    object
+ 14  STDs:    ondylomatosis              858 non-null    object
+ 15  STDs:vaginal condylomatosis         858 non-null    object
+ 16  STDs:vulvo-perineal condylomatosis  858 non-null    object
+ 17  STDs:syphilis                       858 non-null    object
+ 18  STDs:pelvic inflammatory disease    858 non-null    object
+ 19  STDs:genital herpes                 858 non-null    object
+ 20  STDs:molluscum contagiosum          858 non-null    object
+ 21  STDs:AIDS                           858 non-null    object
+ 22  STDs:HIV                            858 non-null    object
+ 23  STDs:Hepatitis B                    858 non-null    object
+ 24  STDs:HPV                            858 non-null    object
+ 25  STDs: Number of diagnosis           858 non-null    int64 
+ 26  STDs: Time since first diagnosis    858 non-null    object
+ 27  STDs: Time since last diagnosis     858 non-null    object
+ 28  Dx:Cancer                           858 non-null    int64 
+ 29  Dx:CIN                              858 non-null    int64 
+ 30  Dx:HPV                              858 non-null    int64 
+ 31  Dx                                  858 non-null    int64 
+ 32  Hinselmann                          858 non-null    int64 
+ 33  Schiller                            858 non-null    int64 
+ 34  Citology                            858 non-null    int64 
+ 35  Biopsy                              858 non-null    int64 
+dtypes: int64(10), object(26)
+memory usage: 241.4+ KB
+None</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="66">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"</span><span class="ch">\n</span><span class="st"> Tipos de datos en cada columna:"</span>)</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.dtypes)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ Tipos de datos en cada columna:
+Age                                    int64
+Number of sexual partners             object
+First sexual intercourse              object
+Num of pregnancies                    object
+Smokes                                object
+Smokes (years)                        object
+Smokes (packs/year)                   object
+Hormonal Contraceptives               object
+Hormonal Contraceptives (years)       object
+IUD                                   object
+IUD (years)                           object
+STDs                                  object
+STDs (number)                         object
+STDs:condylomatosis                   object
+STDs:    ondylomatosis                object
+STDs:vaginal condylomatosis           object
+STDs:vulvo-perineal condylomatosis    object
+STDs:syphilis                         object
+STDs:pelvic inflammatory disease      object
+STDs:genital herpes                   object
+STDs:molluscum contagiosum            object
+STDs:AIDS                             object
+STDs:HIV                              object
+STDs:Hepatitis B                      object
+STDs:HPV                              object
+STDs: Number of diagnosis              int64
+STDs: Time since first diagnosis      object
+STDs: Time since last diagnosis       object
+Dx:Cancer                              int64
+Dx:CIN                                 int64
+Dx:HPV                                 int64
+Dx                                     int64
+Hinselmann                             int64
+Schiller                               int64
+Citology                               int64
+Biopsy                                 int64
+dtype: object</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="67">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>df.replace(<span class="st">'?'</span>, np.NAN, inplace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Cantidad de valores faltantes por columna:"</span>)</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df.isnull().<span class="bu">sum</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Cantidad de valores faltantes por columna:
+Age                                     0
+Number of sexual partners              26
+First sexual intercourse                7
+Num of pregnancies                     56
+Smokes                                 13
+Smokes (years)                         13
+Smokes (packs/year)                    13
+Hormonal Contraceptives               108
+Hormonal Contraceptives (years)       108
+IUD                                   117
+IUD (years)                           117
+STDs                                  105
+STDs (number)                         105
+STDs:condylomatosis                   105
+STDs:    ondylomatosis                105
+STDs:vaginal condylomatosis           105
+STDs:vulvo-perineal condylomatosis    105
+STDs:syphilis                         105
+STDs:pelvic inflammatory disease      105
+STDs:genital herpes                   105
+STDs:molluscum contagiosum            105
+STDs:AIDS                             105
+STDs:HIV                              105
+STDs:Hepatitis B                      105
+STDs:HPV                              105
+STDs: Number of diagnosis               0
+STDs: Time since first diagnosis      787
+STDs: Time since last diagnosis       787
+Dx:Cancer                               0
+Dx:CIN                                  0
+Dx:HPV                                  0
+Dx                                      0
+Hinselmann                              0
+Schiller                                0
+Citology                                0
+Biopsy                                  0
+dtype: int64</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="68">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>cuantitativas_col <span class="op">=</span> [</span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Age'</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Number of sexual partners'</span>, </span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'First sexual intercourse'</span>, </span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Num of pregnancies'</span>,</span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Smokes (years)'</span>,</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Smokes (packs/year)'</span>,</span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Hormonal Contraceptives (years)'</span>,</span>
+<span id="cb10-9"><a href="#cb10-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'IUD (years)'</span>,</span>
+<span id="cb10-10"><a href="#cb10-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'STDs (number)'</span>,</span>
+<span id="cb10-11"><a href="#cb10-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'STDs: Number of diagnosis'</span>,</span>
+<span id="cb10-12"><a href="#cb10-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'STDs: Time since first diagnosis'</span>,</span>
+<span id="cb10-13"><a href="#cb10-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'STDs: Time since last diagnosis'</span></span>
+<span id="cb10-14"><a href="#cb10-14" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb10-15"><a href="#cb10-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-16"><a href="#cb10-16" aria-hidden="true" tabindex="-1"></a>cuantitativas <span class="op">=</span> df[cuantitativas_col]</span>
+<span id="cb10-17"><a href="#cb10-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-18"><a href="#cb10-18" aria-hidden="true" tabindex="-1"></a>DFcopy <span class="op">=</span> df.copy()</span>
+<span id="cb10-19"><a href="#cb10-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-20"><a href="#cb10-20" aria-hidden="true" tabindex="-1"></a>cualitativas <span class="op">=</span> df.drop(cuantitativas_col, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb10-21"><a href="#cb10-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-22"><a href="#cb10-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(cualitativas.columns)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Index(['Smokes', 'Hormonal Contraceptives', 'IUD', 'STDs',
+       'STDs:condylomatosis', 'STDs:    ondylomatosis',
+       'STDs:vaginal condylomatosis', 'STDs:vulvo-perineal condylomatosis',
+       'STDs:syphilis', 'STDs:pelvic inflammatory disease',
+       'STDs:genital herpes', 'STDs:molluscum contagiosum', 'STDs:AIDS',
+       'STDs:HIV', 'STDs:Hepatitis B', 'STDs:HPV', 'Dx:Cancer', 'Dx:CIN',
+       'Dx:HPV', 'Dx', 'Hinselmann', 'Schiller', 'Citology', 'Biopsy'],
+      dtype='object')</code></pre>
+</div>
+</div>
+<div class="cell" data-execution_count="69">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>cuantitativas <span class="op">=</span> cuantitativas.astype(<span class="bu">float</span>)</span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>corr_matrix <span class="op">=</span> cuantitativas.corr()   </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>sns.heatmap(corr_matrix, annot<span class="op">=</span><span class="va">True</span>, cmap<span class="op">=</span><span class="st">'coolwarm'</span>, fmt<span class="op">=</span><span class="st">".2f"</span>)</span>
+<span id="cb12-5"><a href="#cb12-5" aria-hidden="true" tabindex="-1"></a>plt.title(<span class="st">"Matriz de correlación"</span>)</span>
+<span id="cb12-6"><a href="#cb12-6" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-8-output-1.png" class="img-fluid"></p>
+</div>
+</div>
+<p>Al analizar el diagrama de correlación, podemos identificar patrones y tendencias en la asociación entre las variables, lo que nos proporciona información valiosa para entender cómo interactúan las diferentes características del conjunto de datos. Entre las relaciones más destacadas, se encuentran las siguientes:</p>
+<ul>
+<li><p>Smoke year y Smokes packs / years: Estas dos variables están altamente correlacionadas, lo que indica que las personas que fuman más cigarrillos por año, también consumen mas cajetillas al años.</p></li>
+<li><p>Por otro lado tenemos las varibales STDs.Time.since.first.diagnosis: Cuantitativa continua (tiempo desde el primer diagnóstico de ETS), STDs.Time.since.last.diagnosis: Cuantitativa continua (tiempo desde el último diagnóstico de ETS). Las cuales poseen una correlacion de 0.93 entre si. Esta alta correlación sugiere que existe una relación lineal casi perfecta entre ambas variables. Cuando el tiempo desde el primer diagnóstico de ETS aumenta, el tiempo desde el último diagnóstico de ETS también tiende a aumentar en la misma proporción. Pero tambien puede significar que ambas variables están midiendo prácticamente la misma información.</p></li>
+</ul>
+<div class="cell" data-execution_count="70">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> seaborn <span class="im">as</span> sns</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a><span class="co"># Suponiendo que 'cuantitativas' es el DataFrame que contiene las variables cuantitativas</span></span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Obtener una lista con los nombres de las columnas cuantitativas</span></span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>columnas_cuantitativas <span class="op">=</span> cuantitativas.columns</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-9"><a href="#cb13-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Configurar el tamaño del gráfico</span></span>
+<span id="cb13-10"><a href="#cb13-10" aria-hidden="true" tabindex="-1"></a>plt.figure(figsize<span class="op">=</span>(<span class="dv">10</span>, <span class="dv">6</span>))</span>
+<span id="cb13-11"><a href="#cb13-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb13-12"><a href="#cb13-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterar sobre cada columna cuantitativa y crear un diagrama de bigote individual</span></span>
+<span id="cb13-13"><a href="#cb13-13" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> columna <span class="kw">in</span> columnas_cuantitativas:</span>
+<span id="cb13-14"><a href="#cb13-14" aria-hidden="true" tabindex="-1"></a>    plt.figure()  <span class="co"># Crea una nueva figura para cada diagrama</span></span>
+<span id="cb13-15"><a href="#cb13-15" aria-hidden="true" tabindex="-1"></a>    sns.boxplot(data<span class="op">=</span>cuantitativas[columna], palette<span class="op">=</span><span class="st">'colorblind'</span>)</span>
+<span id="cb13-16"><a href="#cb13-16" aria-hidden="true" tabindex="-1"></a>    plt.title(<span class="ss">f"Diagrama de Bigote para </span><span class="sc">{</span>columna<span class="sc">}</span><span class="ss">"</span>)</span>
+<span id="cb13-17"><a href="#cb13-17" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<pre><code>&lt;Figure size 1000x600 with 0 Axes&gt;</code></pre>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-4.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-5.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-6.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-7.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-8.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-9.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-10.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-11.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-12.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-9-output-13.png" class="img-fluid"></p>
+</div>
+</div>
+<div class="cell" data-execution_count="71">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> column <span class="kw">in</span> cualitativas.columns:</span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>    sns.histplot(cualitativas[column])</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>    plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-1.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-2.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-3.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-4.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-5.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-6.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-7.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-8.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-9.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-10.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-11.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-12.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-13.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-14.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-15.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-16.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-17.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-18.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-19.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-20.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-21.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-22.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-23.png" class="img-fluid"></p>
+</div>
+<div class="cell-output cell-output-display">
+<p><img src="Lab1_files/figure-html/cell-10-output-24.png" class="img-fluid"></p>
+</div>
+</div>
+<p>En cuanto a los diagramas de caja y bigote es posible observar que todas las gráficos presentan puntos atípicos. Algunos de los diagramas más afectados por puntos atípicos son IUD(years), STDs(numbers) y STDs(number of diagnosis), ya la mayoría de sus valores estan en 0.</p>
+<p>Debido a que la cantidad de los datos faltantes no es muy grande podemos aplicar una tecnica de oversampling para rellenar los datos faltantes. La tecnica utilizada insertar valores de una distribución aleatoria generada.</p>
+<div class="cell" data-execution_count="72">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Define a function to replace NaN with random values based on column statistics</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> replace_nan_with_random(column):</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> pd.api.types.is_numeric_dtype(column):</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>        mean <span class="op">=</span> column.mean()</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>        std <span class="op">=</span> column.std()</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>        num_nan <span class="op">=</span> column.isnull().<span class="bu">sum</span>()</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>        random_values <span class="op">=</span> np.random.normal(mean, std, num_nan)</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> random_values</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>        non_nan_values <span class="op">=</span> column.dropna()</span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>        num_nan <span class="op">=</span> column.isnull().<span class="bu">sum</span>()</span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>        random_values <span class="op">=</span> np.random.choice(non_nan_values, num_nan, replace<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> random_values</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Iterate over each column with NaN values and replace them with random numbers</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> columna <span class="kw">in</span> df.columns[df.isnull().<span class="bu">any</span>()]:</span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>    random_values <span class="op">=</span> replace_nan_with_random(df[columna])</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>    df.loc[df[columna].isnull(), columna] <span class="op">=</span> random_values</span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df.isnull().sum())</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a><span class="co"># print(df.head(20))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-execution_count="73">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> StandardScaler</span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.decomposition <span class="im">import</span> PCA</span>
+<span id="cb17-4"><a href="#cb17-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-5"><a href="#cb17-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Estandarizar los datos numéricos</span></span>
+<span id="cb17-6"><a href="#cb17-6" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb17-7"><a href="#cb17-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-8"><a href="#cb17-8" aria-hidden="true" tabindex="-1"></a>cualitativas <span class="op">=</span> df.drop(cuantitativas_col, axis<span class="op">=</span><span class="dv">1</span>)</span>
+<span id="cb17-9"><a href="#cb17-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-10"><a href="#cb17-10" aria-hidden="true" tabindex="-1"></a>variables_numericas_estandarizadas <span class="op">=</span> scaler.fit_transform(cualitativas)</span>
+<span id="cb17-11"><a href="#cb17-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-12"><a href="#cb17-12" aria-hidden="true" tabindex="-1"></a><span class="co"># Aplicar PCA solo en las variables numéricas</span></span>
+<span id="cb17-13"><a href="#cb17-13" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span><span class="dv">2</span>)  <span class="co"># Puedes ajustar el número de componentes principales que deseas obtener</span></span>
+<span id="cb17-14"><a href="#cb17-14" aria-hidden="true" tabindex="-1"></a>componentes_principales <span class="op">=</span> pca.fit_transform(variables_numericas_estandarizadas)</span>
+<span id="cb17-15"><a href="#cb17-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-16"><a href="#cb17-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Crear un nuevo DataFrame con los componentes principales y las columnas de interés (opcional)</span></span>
+<span id="cb17-17"><a href="#cb17-17" aria-hidden="true" tabindex="-1"></a>df_componentes_principales <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>componentes_principales)</span>
+<span id="cb17-18"><a href="#cb17-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-19"><a href="#cb17-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-20"><a href="#cb17-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb17-21"><a href="#cb17-21" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(df_componentes_principales)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            0         1
+0   -0.748843 -0.340437
+1   -0.748843 -0.340437
+2   -0.748843 -0.340437
+3    4.663449 -3.984862
+4   -0.730171 -0.422572
+..        ...       ...
+853 -0.748843 -0.340437
+854 -0.730171 -0.422572
+855  0.312441 -0.293169
+856 -0.730171 -0.422572
+857 -0.730171 -0.422572
+
+[858 rows x 2 columns]</code></pre>
+</div>
+</div>
+<p>Tras hacer el analisis de PCA:</p>
+<ul>
+<li><p>Las variables con mayores cargas positivas en este componente pueden estar relacionadas con comportamientos o características relacionadas con la actividad sexual (por ejemplo, ‘Number.of.sexual.partners’, ‘First.sexual.intercourse’, ‘Num.of.pregnancies’). Las variables con mayores cargas negativas pueden estar relacionadas con el uso o exposición a ciertas enfermedades de transmisión sexual (por ejemplo, ‘STDs.number’, ‘STDs.condylomatosis’, ‘STDs.cervical.condylomatosis’, ‘STDs.vaginal.condylomatosis’, ‘STDs.vulvo.perineal.condylomatosis’, ‘STDs.syphilis’, ‘STDs.pelvic.inflammatory.disease’, ‘STDs.genital.herpes’, ‘STDs.molluscum.contagiosum’, ‘STDs.AIDS’, ‘STDs.HIV’, ‘STDs.Hepatitis.B’, ‘STDs.HPV’).</p></li>
+<li><p>Las variables con mayores cargas positivas en este componente pueden estar relacionadas con el uso de anticonceptivos hormonales (por ejemplo, ‘Hormonal.Contraceptives’, ‘Hormonal.Contraceptives.years’). Las variables con mayores cargas negativas pueden estar relacionadas con el consumo de tabaco (por ejemplo, ‘Smokes’, ‘Smokes.years’, ‘Smokes.packs.per.year’).</p></li>
+</ul>
+<div class="cell" data-execution_count="74">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>numerical_cols <span class="op">=</span> [</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Age'</span>, <span class="st">'Number of sexual partners'</span>, <span class="st">'First sexual intercourse'</span>,</span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Num of pregnancies'</span>, <span class="st">'Smokes (years)'</span>, <span class="st">'Smokes (packs/year)'</span>,</span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Hormonal Contraceptives (years)'</span>, <span class="st">'IUD (years)'</span>, <span class="st">'STDs (number)'</span>,</span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    <span class="st">'STDs: Number of diagnosis'</span>, <span class="st">'STDs: Time since first diagnosis'</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    <span class="st">'STDs: Time since last diagnosis'</span></span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>df_numeric <span class="op">=</span> df[numerical_cols]</span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a>df_numeric <span class="op">=</span> df_numeric.<span class="bu">apply</span>(pd.to_numeric, errors<span class="op">=</span><span class="st">'coerce'</span>)</span>
+<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a>scaler <span class="op">=</span> StandardScaler()</span>
+<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a>data_standardized <span class="op">=</span> scaler.fit_transform(df_numeric)</span>
+<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a>kmo_all, kmo_model <span class="op">=</span> calculate_kmo(data_standardized)</span>
+<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Índice KMO:"</span>, kmo_model)</span>
+<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a>chi_square_value, p_value <span class="op">=</span> calculate_bartlett_sphericity(data_standardized)</span>
+<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Chi-Square:"</span>, chi_square_value)</span>
+<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"P-value:"</span>, p_value)</span>
+<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a>num_components <span class="op">=</span> <span class="dv">2</span></span>
+<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a>pca <span class="op">=</span> PCA(n_components<span class="op">=</span>num_components)</span>
+<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a>components <span class="op">=</span> pca.fit_transform(data_standardized)</span>
+<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a>pca_df <span class="op">=</span> pd.DataFrame(data<span class="op">=</span>components, columns<span class="op">=</span>[<span class="ss">f"Componente_</span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">"</span> <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, num_components<span class="op">+</span><span class="dv">1</span>)])</span>
+<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a>explained_variance_ratio <span class="op">=</span> pca.explained_variance_ratio_</span>
+<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Varianza explicada por cada componente:"</span>, explained_variance_ratio)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Índice KMO: 0.4998794826482113
+Chi-Square: 2308.0211748966326
+P-value: 0.0
+Varianza explicada por cada componente: [0.17780661 0.15106042]</code></pre>
+</div>
+</div>
+<p>Al ver el indice del KMO se puede ver la correlación de las variables es moderada debido al valor de 0.4971. De igual manera al observar el los resultado del test de Bartlett es posible observar como los datos si son aplicables para hacer un PCA. Finalmente el valor de la varianza confirma que se puede realizar el PCA. Despues de reducir la dimensinalidad de las variables se logra retener 33.43% de la información original, como se puede ver en los valores obtenidos en el bloque anterior.</p>
+<div class="cell" data-execution_count="75">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> pandas <span class="im">as</span> pd</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mlxtend.preprocessing <span class="im">import</span> TransactionEncoder</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> mlxtend.frequent_patterns <span class="im">import</span> apriori, association_rules</span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> sklearn.preprocessing <span class="im">import</span> KBinsDiscretizer</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>df_discretized <span class="op">=</span> df.copy()</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a>numerical_cols  <span class="op">=</span> [</span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Age'</span>,</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Number of sexual partners'</span>, </span>
+<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    <span class="st">'First sexual intercourse'</span>, </span>
+<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Num of pregnancies'</span>,</span>
+<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Smokes (years)'</span>,</span>
+<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Smokes (packs/year)'</span>,</span>
+<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="st">'Hormonal Contraceptives (years)'</span>,</span>
+<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    <span class="st">'IUD (years)'</span>,</span>
+<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    <span class="st">'STDs (number)'</span>,</span>
+<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="st">'STDs: Number of diagnosis'</span>,</span>
+<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>    <span class="st">'STDs: Time since first diagnosis'</span>,</span>
+<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="st">'STDs: Time since last diagnosis'</span></span>
+<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a>]</span>
+<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a>n_bins <span class="op">=</span> <span class="dv">5</span></span>
+<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> col <span class="kw">in</span> numerical_cols:</span>
+<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    discretizer <span class="op">=</span> KBinsDiscretizer(n_bins<span class="op">=</span>n_bins, encode<span class="op">=</span><span class="st">'ordinal'</span>, strategy<span class="op">=</span><span class="st">'uniform'</span>)</span>
+<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    df_discretized[col] <span class="op">=</span> discretizer.fit_transform(df_discretized[[col]])</span>
+<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>transactions <span class="op">=</span> df_discretized.applymap(<span class="bu">str</span>).values.tolist()</span>
+<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>te <span class="op">=</span> TransactionEncoder()</span>
+<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a>te_array <span class="op">=</span> te.fit(transactions).transform(transactions)</span>
+<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a>df_encoded <span class="op">=</span> pd.DataFrame(te_array, columns<span class="op">=</span>te.columns_)</span>
+<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>confidence_levels <span class="op">=</span> [<span class="fl">0.5</span>, <span class="fl">0.6</span>, <span class="fl">0.7</span>] </span>
+<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a>support_levels <span class="op">=</span> [<span class="fl">0.1</span>, <span class="fl">0.2</span>, <span class="fl">0.3</span>] </span>
+<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> confidence <span class="kw">in</span> confidence_levels:</span>
+<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> support <span class="kw">in</span> support_levels:</span>
+<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>        frequent_itemsets <span class="op">=</span> apriori(df_encoded, min_support<span class="op">=</span>support, use_colnames<span class="op">=</span><span class="va">True</span>)</span>
+<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>        rules <span class="op">=</span> association_rules(frequent_itemsets, metric<span class="op">=</span><span class="st">"confidence"</span>, min_threshold<span class="op">=</span>confidence)</span>
+<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"Reglas con confianza &gt;= </span><span class="sc">{</span>confidence<span class="sc">:.2f}</span><span class="ss"> y soporte &gt;= </span><span class="sc">{</span>support<span class="sc">:.2f}</span><span class="ss">:"</span>)</span>
+<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(rules)</span>
+<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Reglas con confianza &gt;= 0.50 y soporte &gt;= 0.10:
+      antecedents    consequents  antecedent support  consequent support  \
+0           (0.0)            (0)            1.000000            1.000000   
+1             (0)          (0.0)            1.000000            1.000000   
+2             (1)            (0)            0.138695            1.000000   
+3           (1.0)            (0)            0.968531            1.000000   
+4             (0)          (1.0)            1.000000            0.968531   
+..            ...            ...                 ...                 ...   
+83  (1.0, 4.0, 0)          (0.0)            0.166667            1.000000   
+84     (0.0, 4.0)       (1.0, 0)            0.173660            0.968531   
+85     (1.0, 4.0)       (0.0, 0)            0.166667            1.000000   
+86       (4.0, 0)     (0.0, 1.0)            0.173660            0.968531   
+87          (4.0)  (0.0, 1.0, 0)            0.173660            0.968531   
+
+     support  confidence      lift  leverage  conviction  zhangs_metric  
+0   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+1   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+2   0.138695    1.000000  1.000000  0.000000         inf       0.000000  
+3   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+4   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+..       ...         ...       ...       ...         ...            ...  
+83  0.166667    1.000000  1.000000  0.000000         inf       0.000000  
+84  0.166667    0.959732  0.990914 -0.001528    0.781469      -0.010974  
+85  0.166667    1.000000  1.000000  0.000000         inf       0.000000  
+86  0.166667    0.959732  0.990914 -0.001528    0.781469      -0.010974  
+87  0.166667    0.959732  0.990914 -0.001528    0.781469      -0.010974  
+
+[88 rows x 10 columns]
+
+Reglas con confianza &gt;= 0.50 y soporte &gt;= 0.20:
+        antecedents    consequents  antecedent support  consequent support  \
+0             (0.0)            (0)            1.000000            1.000000   
+1               (0)          (0.0)            1.000000            1.000000   
+2             (1.0)            (0)            0.968531            1.000000   
+3               (0)          (1.0)            1.000000            0.968531   
+4             (2.0)            (0)            0.368298            1.000000   
+5             (0.0)          (1.0)            1.000000            0.968531   
+6             (1.0)          (0.0)            0.968531            1.000000   
+7             (2.0)          (0.0)            0.368298            1.000000   
+8             (2.0)          (1.0)            0.368298            0.968531   
+9        (0.0, 1.0)            (0)            0.968531            1.000000   
+10         (0.0, 0)          (1.0)            1.000000            0.968531   
+11         (1.0, 0)          (0.0)            0.968531            1.000000   
+12            (0.0)       (1.0, 0)            1.000000            0.968531   
+13            (1.0)       (0.0, 0)            0.968531            1.000000   
+14              (0)     (0.0, 1.0)            1.000000            0.968531   
+15       (0.0, 2.0)            (0)            0.368298            1.000000   
+16         (2.0, 0)          (0.0)            0.368298            1.000000   
+17            (2.0)       (0.0, 0)            0.368298            1.000000   
+18       (2.0, 1.0)            (0)            0.348485            1.000000   
+19         (2.0, 0)          (1.0)            0.368298            0.968531   
+20            (2.0)       (1.0, 0)            0.368298            0.968531   
+21       (0.0, 2.0)          (1.0)            0.368298            0.968531   
+22       (2.0, 1.0)          (0.0)            0.348485            1.000000   
+23            (2.0)     (0.0, 1.0)            0.368298            0.968531   
+24  (0.0, 2.0, 1.0)            (0)            0.348485            1.000000   
+25    (0.0, 2.0, 0)          (1.0)            0.368298            0.968531   
+26    (2.0, 1.0, 0)          (0.0)            0.348485            1.000000   
+27       (0.0, 2.0)       (1.0, 0)            0.368298            0.968531   
+28       (2.0, 1.0)       (0.0, 0)            0.348485            1.000000   
+29         (2.0, 0)     (0.0, 1.0)            0.368298            0.968531   
+30            (2.0)  (0.0, 1.0, 0)            0.368298            0.968531   
+
+     support  confidence      lift  leverage  conviction  zhangs_metric  
+0   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+1   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+2   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+3   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+4   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+5   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+6   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+7   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+8   0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+9   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+10  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+11  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+12  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+13  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+14  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+15  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+16  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+17  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+18  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+19  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+20  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+21  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+22  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+23  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+24  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+25  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+26  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+27  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+28  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+29  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+30  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+
+Reglas con confianza &gt;= 0.50 y soporte &gt;= 0.30:
+        antecedents    consequents  antecedent support  consequent support  \
+0             (0.0)            (0)            1.000000            1.000000   
+1               (0)          (0.0)            1.000000            1.000000   
+2             (1.0)            (0)            0.968531            1.000000   
+3               (0)          (1.0)            1.000000            0.968531   
+4             (2.0)            (0)            0.368298            1.000000   
+5             (0.0)          (1.0)            1.000000            0.968531   
+6             (1.0)          (0.0)            0.968531            1.000000   
+7             (2.0)          (0.0)            0.368298            1.000000   
+8             (2.0)          (1.0)            0.368298            0.968531   
+9        (0.0, 1.0)            (0)            0.968531            1.000000   
+10         (0.0, 0)          (1.0)            1.000000            0.968531   
+11         (1.0, 0)          (0.0)            0.968531            1.000000   
+12            (0.0)       (1.0, 0)            1.000000            0.968531   
+13            (1.0)       (0.0, 0)            0.968531            1.000000   
+14              (0)     (0.0, 1.0)            1.000000            0.968531   
+15       (0.0, 2.0)            (0)            0.368298            1.000000   
+16         (2.0, 0)          (0.0)            0.368298            1.000000   
+17            (2.0)       (0.0, 0)            0.368298            1.000000   
+18       (2.0, 1.0)            (0)            0.348485            1.000000   
+19         (2.0, 0)          (1.0)            0.368298            0.968531   
+20            (2.0)       (1.0, 0)            0.368298            0.968531   
+21       (0.0, 2.0)          (1.0)            0.368298            0.968531   
+22       (2.0, 1.0)          (0.0)            0.348485            1.000000   
+23            (2.0)     (0.0, 1.0)            0.368298            0.968531   
+24  (0.0, 2.0, 1.0)            (0)            0.348485            1.000000   
+25    (0.0, 2.0, 0)          (1.0)            0.368298            0.968531   
+26    (2.0, 1.0, 0)          (0.0)            0.348485            1.000000   
+27       (0.0, 2.0)       (1.0, 0)            0.368298            0.968531   
+28       (2.0, 1.0)       (0.0, 0)            0.348485            1.000000   
+29         (2.0, 0)     (0.0, 1.0)            0.368298            0.968531   
+30            (2.0)  (0.0, 1.0, 0)            0.368298            0.968531   
+
+     support  confidence      lift  leverage  conviction  zhangs_metric  
+0   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+1   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+2   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+3   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+4   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+5   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+6   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+7   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+8   0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+9   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+10  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+11  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+12  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+13  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+14  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+15  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+16  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+17  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+18  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+19  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+20  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+21  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+22  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+23  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+24  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+25  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+26  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+27  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+28  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+29  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+30  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+
+Reglas con confianza &gt;= 0.60 y soporte &gt;= 0.10:
+      antecedents    consequents  antecedent support  consequent support  \
+0           (0.0)            (0)            1.000000            1.000000   
+1             (0)          (0.0)            1.000000            1.000000   
+2             (1)            (0)            0.138695            1.000000   
+3           (1.0)            (0)            0.968531            1.000000   
+4             (0)          (1.0)            1.000000            0.968531   
+..            ...            ...                 ...                 ...   
+83  (1.0, 4.0, 0)          (0.0)            0.166667            1.000000   
+84     (0.0, 4.0)       (1.0, 0)            0.173660            0.968531   
+85     (1.0, 4.0)       (0.0, 0)            0.166667            1.000000   
+86       (4.0, 0)     (0.0, 1.0)            0.173660            0.968531   
+87          (4.0)  (0.0, 1.0, 0)            0.173660            0.968531   
+
+     support  confidence      lift  leverage  conviction  zhangs_metric  
+0   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+1   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+2   0.138695    1.000000  1.000000  0.000000         inf       0.000000  
+3   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+4   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+..       ...         ...       ...       ...         ...            ...  
+83  0.166667    1.000000  1.000000  0.000000         inf       0.000000  
+84  0.166667    0.959732  0.990914 -0.001528    0.781469      -0.010974  
+85  0.166667    1.000000  1.000000  0.000000         inf       0.000000  
+86  0.166667    0.959732  0.990914 -0.001528    0.781469      -0.010974  
+87  0.166667    0.959732  0.990914 -0.001528    0.781469      -0.010974  
+
+[88 rows x 10 columns]
+
+Reglas con confianza &gt;= 0.60 y soporte &gt;= 0.20:
+        antecedents    consequents  antecedent support  consequent support  \
+0             (0.0)            (0)            1.000000            1.000000   
+1               (0)          (0.0)            1.000000            1.000000   
+2             (1.0)            (0)            0.968531            1.000000   
+3               (0)          (1.0)            1.000000            0.968531   
+4             (2.0)            (0)            0.368298            1.000000   
+5             (0.0)          (1.0)            1.000000            0.968531   
+6             (1.0)          (0.0)            0.968531            1.000000   
+7             (2.0)          (0.0)            0.368298            1.000000   
+8             (2.0)          (1.0)            0.368298            0.968531   
+9        (0.0, 1.0)            (0)            0.968531            1.000000   
+10         (0.0, 0)          (1.0)            1.000000            0.968531   
+11         (1.0, 0)          (0.0)            0.968531            1.000000   
+12            (0.0)       (1.0, 0)            1.000000            0.968531   
+13            (1.0)       (0.0, 0)            0.968531            1.000000   
+14              (0)     (0.0, 1.0)            1.000000            0.968531   
+15       (0.0, 2.0)            (0)            0.368298            1.000000   
+16         (2.0, 0)          (0.0)            0.368298            1.000000   
+17            (2.0)       (0.0, 0)            0.368298            1.000000   
+18       (2.0, 1.0)            (0)            0.348485            1.000000   
+19         (2.0, 0)          (1.0)            0.368298            0.968531   
+20            (2.0)       (1.0, 0)            0.368298            0.968531   
+21       (0.0, 2.0)          (1.0)            0.368298            0.968531   
+22       (2.0, 1.0)          (0.0)            0.348485            1.000000   
+23            (2.0)     (0.0, 1.0)            0.368298            0.968531   
+24  (0.0, 2.0, 1.0)            (0)            0.348485            1.000000   
+25    (0.0, 2.0, 0)          (1.0)            0.368298            0.968531   
+26    (2.0, 1.0, 0)          (0.0)            0.348485            1.000000   
+27       (0.0, 2.0)       (1.0, 0)            0.368298            0.968531   
+28       (2.0, 1.0)       (0.0, 0)            0.348485            1.000000   
+29         (2.0, 0)     (0.0, 1.0)            0.368298            0.968531   
+30            (2.0)  (0.0, 1.0, 0)            0.368298            0.968531   
+
+     support  confidence      lift  leverage  conviction  zhangs_metric  
+0   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+1   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+2   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+3   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+4   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+5   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+6   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+7   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+8   0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+9   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+10  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+11  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+12  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+13  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+14  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+15  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+16  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+17  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+18  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+19  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+20  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+21  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+22  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+23  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+24  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+25  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+26  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+27  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+28  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+29  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+30  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+
+Reglas con confianza &gt;= 0.60 y soporte &gt;= 0.30:
+        antecedents    consequents  antecedent support  consequent support  \
+0             (0.0)            (0)            1.000000            1.000000   
+1               (0)          (0.0)            1.000000            1.000000   
+2             (1.0)            (0)            0.968531            1.000000   
+3               (0)          (1.0)            1.000000            0.968531   
+4             (2.0)            (0)            0.368298            1.000000   
+5             (0.0)          (1.0)            1.000000            0.968531   
+6             (1.0)          (0.0)            0.968531            1.000000   
+7             (2.0)          (0.0)            0.368298            1.000000   
+8             (2.0)          (1.0)            0.368298            0.968531   
+9        (0.0, 1.0)            (0)            0.968531            1.000000   
+10         (0.0, 0)          (1.0)            1.000000            0.968531   
+11         (1.0, 0)          (0.0)            0.968531            1.000000   
+12            (0.0)       (1.0, 0)            1.000000            0.968531   
+13            (1.0)       (0.0, 0)            0.968531            1.000000   
+14              (0)     (0.0, 1.0)            1.000000            0.968531   
+15       (0.0, 2.0)            (0)            0.368298            1.000000   
+16         (2.0, 0)          (0.0)            0.368298            1.000000   
+17            (2.0)       (0.0, 0)            0.368298            1.000000   
+18       (2.0, 1.0)            (0)            0.348485            1.000000   
+19         (2.0, 0)          (1.0)            0.368298            0.968531   
+20            (2.0)       (1.0, 0)            0.368298            0.968531   
+21       (0.0, 2.0)          (1.0)            0.368298            0.968531   
+22       (2.0, 1.0)          (0.0)            0.348485            1.000000   
+23            (2.0)     (0.0, 1.0)            0.368298            0.968531   
+24  (0.0, 2.0, 1.0)            (0)            0.348485            1.000000   
+25    (0.0, 2.0, 0)          (1.0)            0.368298            0.968531   
+26    (2.0, 1.0, 0)          (0.0)            0.348485            1.000000   
+27       (0.0, 2.0)       (1.0, 0)            0.368298            0.968531   
+28       (2.0, 1.0)       (0.0, 0)            0.348485            1.000000   
+29         (2.0, 0)     (0.0, 1.0)            0.368298            0.968531   
+30            (2.0)  (0.0, 1.0, 0)            0.368298            0.968531   
+
+     support  confidence      lift  leverage  conviction  zhangs_metric  
+0   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+1   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+2   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+3   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+4   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+5   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+6   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+7   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+8   0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+9   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+10  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+11  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+12  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+13  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+14  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+15  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+16  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+17  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+18  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+19  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+20  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+21  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+22  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+23  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+24  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+25  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+26  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+27  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+28  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+29  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+30  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+
+Reglas con confianza &gt;= 0.70 y soporte &gt;= 0.10:
+      antecedents    consequents  antecedent support  consequent support  \
+0           (0.0)            (0)            1.000000            1.000000   
+1             (0)          (0.0)            1.000000            1.000000   
+2             (1)            (0)            0.138695            1.000000   
+3           (1.0)            (0)            0.968531            1.000000   
+4             (0)          (1.0)            1.000000            0.968531   
+..            ...            ...                 ...                 ...   
+83  (1.0, 4.0, 0)          (0.0)            0.166667            1.000000   
+84     (0.0, 4.0)       (1.0, 0)            0.173660            0.968531   
+85     (1.0, 4.0)       (0.0, 0)            0.166667            1.000000   
+86       (4.0, 0)     (0.0, 1.0)            0.173660            0.968531   
+87          (4.0)  (0.0, 1.0, 0)            0.173660            0.968531   
+
+     support  confidence      lift  leverage  conviction  zhangs_metric  
+0   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+1   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+2   0.138695    1.000000  1.000000  0.000000         inf       0.000000  
+3   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+4   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+..       ...         ...       ...       ...         ...            ...  
+83  0.166667    1.000000  1.000000  0.000000         inf       0.000000  
+84  0.166667    0.959732  0.990914 -0.001528    0.781469      -0.010974  
+85  0.166667    1.000000  1.000000  0.000000         inf       0.000000  
+86  0.166667    0.959732  0.990914 -0.001528    0.781469      -0.010974  
+87  0.166667    0.959732  0.990914 -0.001528    0.781469      -0.010974  
+
+[88 rows x 10 columns]
+
+Reglas con confianza &gt;= 0.70 y soporte &gt;= 0.20:
+        antecedents    consequents  antecedent support  consequent support  \
+0             (0.0)            (0)            1.000000            1.000000   
+1               (0)          (0.0)            1.000000            1.000000   
+2             (1.0)            (0)            0.968531            1.000000   
+3               (0)          (1.0)            1.000000            0.968531   
+4             (2.0)            (0)            0.368298            1.000000   
+5             (0.0)          (1.0)            1.000000            0.968531   
+6             (1.0)          (0.0)            0.968531            1.000000   
+7             (2.0)          (0.0)            0.368298            1.000000   
+8             (2.0)          (1.0)            0.368298            0.968531   
+9        (0.0, 1.0)            (0)            0.968531            1.000000   
+10         (0.0, 0)          (1.0)            1.000000            0.968531   
+11         (1.0, 0)          (0.0)            0.968531            1.000000   
+12            (0.0)       (1.0, 0)            1.000000            0.968531   
+13            (1.0)       (0.0, 0)            0.968531            1.000000   
+14              (0)     (0.0, 1.0)            1.000000            0.968531   
+15       (0.0, 2.0)            (0)            0.368298            1.000000   
+16         (2.0, 0)          (0.0)            0.368298            1.000000   
+17            (2.0)       (0.0, 0)            0.368298            1.000000   
+18       (2.0, 1.0)            (0)            0.348485            1.000000   
+19         (2.0, 0)          (1.0)            0.368298            0.968531   
+20            (2.0)       (1.0, 0)            0.368298            0.968531   
+21       (0.0, 2.0)          (1.0)            0.368298            0.968531   
+22       (2.0, 1.0)          (0.0)            0.348485            1.000000   
+23            (2.0)     (0.0, 1.0)            0.368298            0.968531   
+24  (0.0, 2.0, 1.0)            (0)            0.348485            1.000000   
+25    (0.0, 2.0, 0)          (1.0)            0.368298            0.968531   
+26    (2.0, 1.0, 0)          (0.0)            0.348485            1.000000   
+27       (0.0, 2.0)       (1.0, 0)            0.368298            0.968531   
+28       (2.0, 1.0)       (0.0, 0)            0.348485            1.000000   
+29         (2.0, 0)     (0.0, 1.0)            0.368298            0.968531   
+30            (2.0)  (0.0, 1.0, 0)            0.368298            0.968531   
+
+     support  confidence      lift  leverage  conviction  zhangs_metric  
+0   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+1   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+2   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+3   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+4   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+5   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+6   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+7   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+8   0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+9   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+10  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+11  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+12  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+13  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+14  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+15  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+16  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+17  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+18  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+19  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+20  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+21  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+22  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+23  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+24  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+25  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+26  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+27  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+28  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+29  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+30  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+
+Reglas con confianza &gt;= 0.70 y soporte &gt;= 0.30:
+        antecedents    consequents  antecedent support  consequent support  \
+0             (0.0)            (0)            1.000000            1.000000   
+1               (0)          (0.0)            1.000000            1.000000   
+2             (1.0)            (0)            0.968531            1.000000   
+3               (0)          (1.0)            1.000000            0.968531   
+4             (2.0)            (0)            0.368298            1.000000   
+5             (0.0)          (1.0)            1.000000            0.968531   
+6             (1.0)          (0.0)            0.968531            1.000000   
+7             (2.0)          (0.0)            0.368298            1.000000   
+8             (2.0)          (1.0)            0.368298            0.968531   
+9        (0.0, 1.0)            (0)            0.968531            1.000000   
+10         (0.0, 0)          (1.0)            1.000000            0.968531   
+11         (1.0, 0)          (0.0)            0.968531            1.000000   
+12            (0.0)       (1.0, 0)            1.000000            0.968531   
+13            (1.0)       (0.0, 0)            0.968531            1.000000   
+14              (0)     (0.0, 1.0)            1.000000            0.968531   
+15       (0.0, 2.0)            (0)            0.368298            1.000000   
+16         (2.0, 0)          (0.0)            0.368298            1.000000   
+17            (2.0)       (0.0, 0)            0.368298            1.000000   
+18       (2.0, 1.0)            (0)            0.348485            1.000000   
+19         (2.0, 0)          (1.0)            0.368298            0.968531   
+20            (2.0)       (1.0, 0)            0.368298            0.968531   
+21       (0.0, 2.0)          (1.0)            0.368298            0.968531   
+22       (2.0, 1.0)          (0.0)            0.348485            1.000000   
+23            (2.0)     (0.0, 1.0)            0.368298            0.968531   
+24  (0.0, 2.0, 1.0)            (0)            0.348485            1.000000   
+25    (0.0, 2.0, 0)          (1.0)            0.368298            0.968531   
+26    (2.0, 1.0, 0)          (0.0)            0.348485            1.000000   
+27       (0.0, 2.0)       (1.0, 0)            0.368298            0.968531   
+28       (2.0, 1.0)       (0.0, 0)            0.348485            1.000000   
+29         (2.0, 0)     (0.0, 1.0)            0.368298            0.968531   
+30            (2.0)  (0.0, 1.0, 0)            0.368298            0.968531   
+
+     support  confidence      lift  leverage  conviction  zhangs_metric  
+0   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+1   1.000000    1.000000  1.000000  0.000000         inf       0.000000  
+2   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+3   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+4   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+5   0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+6   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+7   0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+8   0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+9   0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+10  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+11  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+12  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+13  0.968531    1.000000  1.000000  0.000000         inf       0.000000  
+14  0.968531    0.968531  1.000000  0.000000    1.000000       0.000000  
+15  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+16  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+17  0.368298    1.000000  1.000000  0.000000         inf       0.000000  
+18  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+19  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+20  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+21  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+22  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+23  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+24  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+25  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+26  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+27  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+28  0.348485    1.000000  1.000000  0.000000         inf       0.000000  
+29  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+30  0.348485    0.946203  0.976946 -0.008224    0.584944      -0.036012  
+</code></pre>
+</div>
+</div>
+<p>Al hacer el analisis de las reglas de asociación obtenidas, se pueden inferir algunas cosas.</p>
+<ul>
+<li><p>En las reglas mostradas anteriormente, podemos ver que hay reglas que tienen un soporte y confianza del 100% y se generan a partir de antecedentes o consecuentes con un solo valor, por lo tanto estas reglas pueden ser descartadas ya que no aportan información relevante, sino que solo generan más ruido al analisis.</p></li>
+<li><p>Existen reglas que tienen un alto nivel de confianza y un soporte mayor al 0.10. Estas reglas pueden proporcionar información relevante sobre las relaciones entre variables, por lo tanto estas son a la cuales hay que darle mayor enfasis a la hora de hacer un analisis.</p></li>
+<li><p>Otras reglas tienen una confianza moderada pero un soporte significativo. Estas reglas también pueden ser interesantes, ya que indican relaciones menos frecuentes pero con mayor confianza.</p></li>
+</ul>
+</section>
+<section id="hallazgos-y-conclusiones" class="level1">
+<h1>Hallazgos y conclusiones</h1>
+<p>Durante el análisis exploratorio de los datos, se examinaron diversas variables relacionadas con la salud sexual de las pacientes. Se identificaron características cuantitativas y categóricas en el dataset. Entre las variables cuantitativas continuas, se encontraron “Age” (edad en años), “STDs.Time.since.first.diagnosis” (tiempo desde el primer diagnóstico de ETS), y “STDs.Time.since.last.diagnosis” (tiempo desde el último diagnóstico de ETS). Por otro lado, entre las variables cuantitativas discretas, se hallaron “Number.of.sexual.partners” (cantidad de parejas sexuales), “First.sexual.intercourse” (edad al primer encuentro sexual), “Num.of.pregnancies” (cantidad de embarazos), “Smokes.years” (años que lleva fumando), “Smokes.packs.per.year” (cantidad de cajetillas de cigarrillos por año que fuma la paciente), entre otras.</p>
+<p>En cuanto al análisis de correlación, se encontraron relaciones de interés entre algunas variables. Por ejemplo, se observó una correlación moderadamente fuerte de 0.72 entre “Smokes.years” y “Smokes.packs.per.year”, lo que indica que las personas que han fumado durante más años tienden a consumir más cajetillas de cigarrillos por año en promedio.</p>
+<p>El análisis también reveló una correlación muy alta de 0.9 entre “STDs.Time.since.first.diagnosis” y “STDs.Time.since.last.diagnosis”, lo que sugiere una relación lineal casi perfecta entre el tiempo transcurrido desde el primer y último diagnóstico de ETS.</p>
+<p>Al realizar el análisis de componentes principales (PCA) en las variables numéricas, se encontró que algunas de ellas mostraban una alta correlación entre sí. Esto puede indicar que dichas variables están midiendo información similar y podrían redundar en el análisis.</p>
+<ul>
+<li>Las variables como STDs: cervical condylomatosis y STDs:AIDS son variables que podrían ser removidas del estudio ya que no aportan nueva información. Esto se debe a que los valores de estas variables son negativos en cuanto a si presenta la enfermedad o no.</li>
+</ul>
+<p>Durante el análisis de reglas de asociación, se encontraron varias relaciones interesantes entre las variables. Por ejemplo, se identificaron reglas con altos niveles de confianza y soporte que muestran patrones de comportamiento entre diferentes variables categóricas. Estas reglas pueden proporcionar información valiosa sobre las tendencias y relaciones ocultas en los datos.</p>
+</section>
+
+</main>
+<!-- /main column -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    target: function(trigger) {
+      return trigger.previousElementSibling;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+  function tippyHover(el, contentFn) {
+    const config = {
+      allowHTML: true,
+      content: contentFn,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start'
+    };
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      return note.innerHTML;
+    });
+  }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+</body></html>
